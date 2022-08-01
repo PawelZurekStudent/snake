@@ -1,11 +1,13 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+#include <plansza.h>
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Blue);
+    sf::RenderWindow window(sf::VideoMode(900, 600), "SFML works!");
+
+    plansza plansza(window);
 
     while (window.isOpen())
     {
@@ -17,7 +19,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        plansza.aktualizuj(window);
         window.display();
     }
 
