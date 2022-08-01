@@ -14,4 +14,3 @@ private:
 	std::string zegarek;
 	int czas_lacznie, minuty, sekndy;
 };
-

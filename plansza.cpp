@@ -21,6 +21,7 @@ plansza::plansza(sf::RenderWindow& okno)
 	czas.setFillColor(sf::Color::White);
 	czas.setString("00:00");
 }
+
 void plansza::aktualizuj(sf::RenderWindow& okno)
 {
 	//aktualizacja czasu
