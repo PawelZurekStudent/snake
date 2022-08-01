@@ -9,6 +9,8 @@ int main()
 
     plansza plansza(window);
 
+
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -20,6 +22,7 @@ int main()
 
         window.clear();
         plansza.aktualizuj(window);
+
         window.display();
     }
 
