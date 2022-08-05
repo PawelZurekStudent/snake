@@ -22,10 +22,9 @@ plansza::plansza(sf::RenderWindow& okno)
 	czas.setString("00:00");
 }
 
-void plansza::aktualizuj(sf::RenderWindow& okno)
+void plansza::aktualizuj(sf::RenderWindow& okno, int czas_lacznie)
 {
 	//aktualizacja czasu
-	czas_lacznie = zegar.getElapsedTime().asSeconds();
 	minuty = czas_lacznie / 60;
 	sekndy = czas_lacznie % 60;
 
@@ -44,4 +43,29 @@ void plansza::aktualizuj(sf::RenderWindow& okno)
 	okno.draw(obwod);
 	okno.draw(pole);
 	okno.draw(czas);
+
+
+	//siatka
+	int j = 0;
+	for(int i = pole.getPosition().x + 20; i < pole.getPosition().x + pole.getSize().x; i = i + 20)
+	{
+		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 150));
+		siatka[j].setSize(sf::Vector2f(2, 440));
+		siatka[j].setPosition(sf::Vector2f(i-1, 40));
+		okno.draw(siatka[j]);
+		j++;
+	}
+	for (int i = pole.getPosition().y + 20; i < pole.getPosition().y + pole.getSize().y; i = i + 20)
+	{
+		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 150));
+		siatka[j].setSize(sf::Vector2f(820 ,2));
+		siatka[j].setPosition(sf::Vector2f(40, i-1));
+		okno.draw(siatka[j]);
+		j++;
+	}
+}
+
+sf::RectangleShape plansza::getPole() 
+{
+	return pole;
 }

@@ -5,12 +5,13 @@ class plansza
 {
 public:
 	plansza(sf::RenderWindow& okno);
-	void aktualizuj(sf::RenderWindow& okno);
+	void aktualizuj(sf::RenderWindow& okno, int czas_lacznie);
+	sf::RectangleShape getPole();
 private:
 	sf::RectangleShape obwod,pole;
-	sf::Clock zegar;
+	sf::RectangleShape siatka[100];
 	sf::Text czas;
 	sf::Font czcionka;
 	std::string zegarek;
-	int czas_lacznie, minuty, sekndy;
+	int minuty, sekndy;
 };

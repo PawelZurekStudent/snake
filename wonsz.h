@@ -6,16 +6,16 @@
 class wonsz
 {
 public:
-	wonsz(sf::Vector2f pole);
-	void aktualizuj(sf::RenderWindow& okno);
+	wonsz(sf::RectangleShape pole);
+	void aktualizuj(sf::RenderWindow& okno, sf::Time czas);
 	void add();
-
 private:
-
 	std::vector <sf::RectangleShape> cialo;
-	int rozmiar = 0;
-
 	sf::RectangleShape obszar;
-	float predkosc;
+	float czas_ruchu = 200;
+	sf::Time czas_poprzedni, uplynelo;
+	sf::Vector2f pozycja_ekran,pozycja_siatka;//siatka od 0,0 do 40,21
+	int kierunek = 0;
+	void pozycja_ekran_siatka();
 };
 

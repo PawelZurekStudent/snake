@@ -155,11 +155,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gra.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="plansza.cpp" />
     <ClCompile Include="wonsz.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gra.h" />
     <ClInclude Include="plansza.h" />
     <ClInclude Include="wonsz.h" />
   </ItemGroup>
