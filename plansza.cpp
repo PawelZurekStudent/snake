@@ -1,5 +1,7 @@
 #include "plansza.h"
 
+#include <iostream>
+
 plansza::plansza(sf::RenderWindow& okno)
 {
 	//kolory
@@ -20,9 +22,34 @@ plansza::plansza(sf::RenderWindow& okno)
 	czas.setCharacterSize(80);
 	czas.setFillColor(sf::Color::White);
 	czas.setString("00:00");
+
+	//punkty
+	punkty.setFont(czcionka);
+	punkty.setCharacterSize(80);
+	punkty.setFillColor(sf::Color::White);
+	punkty.setString("0");
+	punkty.setPosition(40, okno.getSize().y - 100);
+
+	//siatka
+	int j = 0;
+	for (int i = pole.getPosition().x + 20; i < pole.getPosition().x + pole.getSize().x; i = i + 20)
+	{
+		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 100));
+		siatka[j].setSize(sf::Vector2f(2, 440));
+		siatka[j].setPosition(sf::Vector2f(i - 1, 40));
+		j++;
+	}
+	for (int i = pole.getPosition().y + 20; i < pole.getPosition().y + pole.getSize().y; i = i + 20)
+	{
+		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 100));
+		siatka[j].setSize(sf::Vector2f(820, 2));
+		siatka[j].setPosition(sf::Vector2f(40, i - 1));
+		j++;
+	}
+	//std::cout << j;
 }
 
-void plansza::aktualizuj(sf::RenderWindow& okno, int czas_lacznie)
+void plansza::aktualizuj(sf::RenderWindow& okno, int czas_lacznie, int punkt)
 {
 	//aktualizacja czasu
 	minuty = czas_lacznie / 60;
@@ -36,33 +63,22 @@ void plansza::aktualizuj(sf::RenderWindow& okno, int czas_lacznie)
 	czas.setString(zegarek);
 
 	//ustawianie zegarka na srodku
-	czas.setOrigin(sf::Vector2f(czas.getLocalBounds().width/2, czas.getLocalBounds().height / 2));
-	czas.setPosition(sf::Vector2f(okno.getSize().x / 2, okno.getSize().y - 70));
+	czas.setOrigin(sf::Vector2f(czas.getLocalBounds().width / 2, 0));// czas.getLocalBounds().height / 2));
+	czas.setPosition(sf::Vector2f(okno.getSize().x / 2, okno.getSize().y - 100));
+
+	//aktualizacja punktow
+	punkty.setString(std::to_string(punkt));
+
 
 	//rysowanie
 	okno.draw(obwod);
 	okno.draw(pole);
 	okno.draw(czas);
-
+	okno.draw(punkty);
 
 	//siatka
-	int j = 0;
-	for(int i = pole.getPosition().x + 20; i < pole.getPosition().x + pole.getSize().x; i = i + 20)
-	{
-		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 150));
-		siatka[j].setSize(sf::Vector2f(2, 440));
-		siatka[j].setPosition(sf::Vector2f(i-1, 40));
-		okno.draw(siatka[j]);
-		j++;
-	}
-	for (int i = pole.getPosition().y + 20; i < pole.getPosition().y + pole.getSize().y; i = i + 20)
-	{
-		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 150));
-		siatka[j].setSize(sf::Vector2f(820 ,2));
-		siatka[j].setPosition(sf::Vector2f(40, i-1));
-		okno.draw(siatka[j]);
-		j++;
-	}
+	for (int i = 0; i < 61; i++)
+		okno.draw(siatka[i]);
 }
 
 sf::RectangleShape plansza::getPole() 
