@@ -19,4 +19,3 @@ private:
 	int kierunek = 0;
 	void pozycja_ekran_siatka();
 };
-

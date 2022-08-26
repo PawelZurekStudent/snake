@@ -3,12 +3,15 @@
 
 #include "gra.h"
 
+#include "menu.h"
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(900, 600), "SFML works!");
 
-    
     gra gra(window);
+
+    menu ustawienia(window);
 
     while (window.isOpen())
     {
@@ -20,7 +23,8 @@ int main()
                 window.close();
         }
 
-        gra.graj(window);
+        //gra.graj(window);
+        ustawienia.aktualizuj_glowne(window);
 
         window.display();
     }

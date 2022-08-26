@@ -158,12 +158,14 @@
     <ClCompile Include="gra.cpp" />
     <ClCompile Include="jabko.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="plansza.cpp" />
     <ClCompile Include="wonsz.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gra.h" />
     <ClInclude Include="jabko.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="plansza.h" />
     <ClInclude Include="wonsz.h" />
   </ItemGroup>

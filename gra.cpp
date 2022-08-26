@@ -16,5 +16,4 @@ void gra::graj(sf::RenderWindow& okno)
 	zyje = waz->aktualizuj(okno, zegar.getElapsedTime(), czy_dodac);
 	if (!zyje)
 		okno.close();
-
 }

@@ -30,22 +30,23 @@ plansza::plansza(sf::RenderWindow& okno)
 	punkty.setString("0");
 	punkty.setPosition(40, okno.getSize().y - 100);
 
-	//siatka
-	int j = 0;
-	for (int i = pole.getPosition().x + 20; i < pole.getPosition().x + pole.getSize().x; i = i + 20)
-	{
-		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 100));
-		siatka[j].setSize(sf::Vector2f(2, 440));
-		siatka[j].setPosition(sf::Vector2f(i - 1, 40));
-		j++;
-	}
-	for (int i = pole.getPosition().y + 20; i < pole.getPosition().y + pole.getSize().y; i = i + 20)
-	{
-		siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 100));
-		siatka[j].setSize(sf::Vector2f(820, 2));
-		siatka[j].setPosition(sf::Vector2f(40, i - 1));
-		j++;
-	}
+	//siatke trzeba zrobic tak zeby sie nie psula przy duzej rozdzielczosci
+	////siatka
+	//int j = 0;
+	//for (int i = pole.getPosition().x + 20; i < pole.getPosition().x + pole.getSize().x; i = i + 20)
+	//{
+	//	siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 100));
+	//	siatka[j].setSize(sf::Vector2f(2, 440));
+	//	siatka[j].setPosition(sf::Vector2f(i - 1, 40));
+	//	j++;
+	//}
+	//for (int i = pole.getPosition().y + 20; i < pole.getPosition().y + pole.getSize().y; i = i + 20)
+	//{
+	//	siatka[j].setFillColor(sf::Color::Color(100, 100, 100, 100));
+	//	siatka[j].setSize(sf::Vector2f(820, 2));
+	//	siatka[j].setPosition(sf::Vector2f(40, i - 1));
+	//	j++;
+	//}
 	//std::cout << j;
 }
 
@@ -76,9 +77,9 @@ void plansza::aktualizuj(sf::RenderWindow& okno, int czas_lacznie, int punkt)
 	okno.draw(czas);
 	okno.draw(punkty);
 
-	//siatka
-	for (int i = 0; i < 61; i++)
-		okno.draw(siatka[i]);
+	////siatka
+	//for (int i = 0; i < 61; i++)
+	//	okno.draw(siatka[i]);
 }
 
 sf::RectangleShape plansza::getPole() 

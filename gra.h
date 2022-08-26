@@ -17,4 +17,3 @@ private:
 	jabko *jablko;
 	bool zyje = true, czy_dodac = false;
 };
-

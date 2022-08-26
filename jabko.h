@@ -18,4 +18,3 @@ private:
 	void rusz_jabko(std::vector <sf::RectangleShape> cialo_weza);
 	void pozycja_ekran_siatka();
 };
-
